@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-
+import { Component, ViewEncapsulation } from '@angular/core';
+import { PlayerService } from './shared/player.service';
+// hi
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  providers: [PlayerService],
+  styleUrls: ['../../node_modules/@progress/kendo-theme-material/dist/all.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  title = 'itunes-search';
-}
+export class AppComponent {}
