@@ -11,6 +11,7 @@
       <p>{{ dataItem.releaseDate | date }}</p>
     </ng-template>
   </kendo-grid-column>
+  <kendo-grid-column field="collectionPrice" title="Collection Price"></kendo-grid-column>
   <div *kendoGridDetailTemplate="let dataItem">
     <app-track [collectionId]="dataItem.collectionId" (onPlayTrack)="playTrack($event)"></app-track>
   </div>

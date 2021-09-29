@@ -25,11 +25,6 @@ export class ArtistComponent {
       this.searchResults = results;
     });
   }
-  /*search(searchTerm: string) {
-    this.itunesService.search(searchTerm).then(results => {
-      this.searchResults = results;
-    });
-  }*/
   getAlbums(artistId: number, artistName: string) {
     this.playerService.pauseTrack();
 
@@ -37,13 +32,13 @@ export class ArtistComponent {
     this.selectedArtist = artistName;
   }
 
-  datos;
+  data;
   
   selectedOption: string  = 'all';
   verSeleccion: string        = '';
 
-  constructor2(){
-      this.datos = ['all','music','video'];
+  constructorDataMedia(){
+      this.data = ['all','music','tvShow','musicVideo','audiobook','shortFilm','podcast','software','ebook','movie'];
   }  
   capture() {
     this.verSeleccion = this.selectedOption;

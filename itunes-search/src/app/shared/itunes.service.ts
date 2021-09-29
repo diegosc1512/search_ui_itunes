@@ -17,17 +17,6 @@ export class ItunesService {
 
   constructor(private jsonp: Jsonp) {}
 
-  /*public search(searchTerm: string): Promise<any> {
-    return this.jsonp
-      .get(
-        `${
-          API.SEARCH
-        }callback=JSONP_CALLBACK&media=music&country=US&entity=musicArtist&term=${searchTerm}`
-      )
-      .toPromise()
-      .then(data => data.json().results)
-      .catch(this.handleError);
-  }*/
   public search(searchTerm: string, mediaStatus: string): Promise<any> {
     return this.jsonp
       .get(
