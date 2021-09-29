@@ -1,7 +1,57 @@
 <div class="row">
-  <div class="col-xs-12">
-    <input type="search" #searchBox (keyup)="search(searchBox.value)" class="form-control input-lg well" placeholder="Type to search for artist...">
+  <div class="col-sm-9">
+    <input type="search" #searchBox (keyup)="search(searchBox.value, selectedOption)" class="form-control input-lg well" placeholder="Type to search">
   </div>
+  
+  <div class="col-sm-3">
+   <!-- <select class="form-control" name="status" [(ngModel)]="media.status">-->
+    <!--<select class="form-control"  (keyup)="search(searchBox.value, media.status)">
+       <option [value]="all" [selected]="media.status ==all">All</option>
+       <option [value]="music" [selected]="media.status ==all">Music</option>
+       <option [value]="tvShow" [selected]="media.status ==tvShow">TV Show</option>
+       <option [value]="musicVideo" [selected]="media.status ==musicVideo">Music Video</option>
+       <option [value]="audiobook" [selected]="media.status ==audiobook">Audio book</option>
+       <option [value]="shortFilm" [selected]="media.status ==shortFilm">ShortFilm</option>
+       <option [value]="podcast" [selected]="media.status ==podcast">Podcast</option>
+       <option [value]="software" [selected]="media.status ==software">Software</option>
+       <option [value]="ebook" [selected]="media.status ==ebook">Ebook</option>
+    </select>
+  </div> -->
+
+
+    <!--
+     <select class="form-control"  (keyup)="search(searchBox.value, media.status)">
+        <option [value]="all" [selected]="media.status ==all">All</option>
+        <option [value]="music" [selected]="media.status ==music">Music</option>
+        <option [value]="tvShow" [selected]="media.status ==tvShow">TV Show</option>
+        <option [value]="musicVideo" [selected]="media.status ==musicVideo">Music Video</option>
+        <option [value]="audiobook" [selected]="media.status ==audiobook">Audio book</option>
+        <option [value]="shortFilm" [selected]="media.status ==shortFilm">ShortFilm</option>
+        <option [value]="podcast" [selected]="media.status ==podcast">Podcast</option>
+        <option [value]="software" [selected]="media.status ==software">Software</option>
+        <option [value]="ebook" [selected]="media.status ==ebook">Ebook</option>
+     </select>
+    
+    <select [selected]='all' (change)="search(searchBox.value,selected )">
+      <option value="all" [selected]='all'>all</option>
+      <option value="music" [selected]='music'>music</option>
+
+    </select>-->
+    <select [(ngModel)]="selectedOption" (change)="capture(); search(searchBox.value, selectedOption)">
+      <option value="all">All</option>
+      <option value="music">music</option>
+      <option value="tvShow">tvShow</option>
+      <option value="musicVideo">musicVideo</option>
+      <option value="audiobook">audiobook</option>
+      <option value="shortFilm">shortFilm</option>
+      <option value="podcast">podcast</option>
+      <option value="software">software</option>
+      <option value="ebook">ebook</option>
+   
+  </select>
+  <p [hidden]="selectedOption == 'all'">Haz seleccionado la opción # {{ verSeleccion }}</p>
+    </div>
+
 </div>
 <div class="row">
   <div class="col-sm-4" *ngIf="searchResults.length > 0">

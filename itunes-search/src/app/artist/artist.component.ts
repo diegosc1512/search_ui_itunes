@@ -20,16 +20,32 @@ export class ArtistComponent {
     private playerService: PlayerService
   ) {}
 
-  search(searchTerm: string) {
-    this.itunesService.search(searchTerm).then(results => {
+  search(searchTerm: string, mediaStatus: string) {
+    this.itunesService.search(searchTerm,mediaStatus).then(results => {
       this.searchResults = results;
     });
   }
-
+  /*search(searchTerm: string) {
+    this.itunesService.search(searchTerm).then(results => {
+      this.searchResults = results;
+    });
+  }*/
   getAlbums(artistId: number, artistName: string) {
     this.playerService.pauseTrack();
 
     this.artistId = artistId;
     this.selectedArtist = artistName;
   }
+
+  datos;
+  
+  selectedOption: string  = 'all';
+  verSeleccion: string        = '';
+
+  constructor2(){
+      this.datos = ['all','music','video'];
+  }  
+  capture() {
+    this.verSeleccion = this.selectedOption;
+}
 }
