@@ -1,7 +1,7 @@
 <kendo-grid [data]="view" [selectable]="true" [sortable]="true" [sort]="sort" (sortChange)="sortChange($event)" [pageSize]="pageSize"
   [skip]="skip" [pageable]="true" (pageChange)="pageChange($event)" (detailCollapse)="pauseTrack()">
 
-  <kendo-grid-column field="collectionName" title="Title" >
+  <kendo-grid-column field="collectionName" title="Title (tap to sort)" >
     <ng-template kendoGridCellTemplate let-dataItem>
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
