@@ -19,16 +19,20 @@ export class ItunesService {
 
   public search(searchTerm: string, mediaStatus: string): Promise<any> {
     return this.jsonp
-      .get(
-        `${
-          API.SEARCH
-        }callback=JSONP_CALLBACK&media=${mediaStatus}&country=US&entity=musicArtist&term=${searchTerm}`
-      )
+    //if you need especificate wich entity are you filter and uneable the limit
+     // .get(`${API.SEARCH}callback=JSONP_CALLBACK&media=${mediaStatus}&country=US&entity=musicArtist&term=${searchTerm}`)
+      .get(`${API.SEARCH}callback=JSONP_CALLBACK&media=${mediaStatus}&term=${searchTerm}&limit=25`)
       .toPromise()
       .then(data => data.json().results)
       .catch(this.handleError);
   }
-
+  public searchAll(searchTerm: string, mediaStatus: string): Promise<any> {
+    return this.jsonp
+      .get(`${API.SEARCH}callback=JSONP_CALLBACK&media=${mediaStatus}&term=${searchTerm}`)
+      .toPromise()
+      .then(data => data.json().results)
+      .catch(this.handleError);
+  }
   public getAlbums(artistId: number): Promise<any> {
     if (artistId === this._artistId) {
       return new Promise(resolve => resolve(this._albums));

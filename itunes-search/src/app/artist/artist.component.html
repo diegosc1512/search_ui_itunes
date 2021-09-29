@@ -25,6 +25,7 @@
 <div class="row">
   <div class="col-sm-4" *ngIf="searchResults.length > 0">
     <h3>Search Results</h3>
+    <button class="form-control input-lg bg-primary" (click)="searchAll(searchBox.value, selectedOption)">Search All</button>
     <p *ngFor="let artist of searchResults">
       <a id="{{ artist.artistId }}" href="#" (click)="getAlbums(artist.artistId, artist.artistName)">{{ artist.artistName }}</a>
     </p>

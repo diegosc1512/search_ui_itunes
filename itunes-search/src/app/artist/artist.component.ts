@@ -25,6 +25,12 @@ export class ArtistComponent {
       this.searchResults = results;
     });
   }
+  searchAll(searchTerm: string, mediaStatus: string) {
+    this.itunesService.searchAll(searchTerm,mediaStatus).then(results => {
+      this.searchResults = results;
+    });
+    
+  }
   getAlbums(artistId: number, artistName: string) {
     this.playerService.pauseTrack();
 
