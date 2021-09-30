@@ -13,19 +13,13 @@ export class AlbumComponent {
   view: GridDataResult;
 
   _artistId: number = 0;
-
-  // controls the current grid sort state
   sort: SortDescriptor[] = [];
-
-  // controls grid paging settings
   pageSize: number = 5;
   skip: number = 0;
 
   @Input()
   set artistId(artistId: number) {
     this._artistId = artistId;
-
-    // get the albums for this artist
     this.getAlbums();
   }
   get artistId() {
@@ -48,20 +42,14 @@ export class AlbumComponent {
       };
     });
   }
-
-  // fires when the sort is changed on the grid
   sortChange(sort: SortDescriptor[]): void {
     this.sort = sort;
     this.getAlbums();
   }
-
-  // fires when the user changes pages in the grid
   pageChange(event: PageChangeEvent): void {
     this.skip = event.skip;
     this.getAlbums();
   }
-
-  // pauses the currently playing track when the row is collapsed
   pauseTrack() {
     this.playerService.pauseTrack();
   }

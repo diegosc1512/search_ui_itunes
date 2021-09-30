@@ -1,13 +1,4 @@
 <kendo-grid [data]="view" [scrollable]="'none'">
-  <!--component not found, explorer uneable that. fixed with HTML audio source-->
-  <!--<kendo-grid-column > 
-    <ng-template kendoGridCellTemplate let-dataItem>
-      <app-track-control [track]="dataItem">
-      </app-track-control>
-      <audio src={{dataItem.previewUrl}} controls="controls" type="audio/mpeg" preload="preload">
-        </audio>
-    </ng-template>
-  </kendo-grid-column>-->
   <kendo-grid-column title="Track" class="track">
     <ng-template kendoGridCellTemplate let-dataItem>
       <div class="track-container">

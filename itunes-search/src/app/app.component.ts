@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { PlayerService } from './shared/player.service';
-// hi
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
