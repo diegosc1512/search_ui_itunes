@@ -1,0 +1,13 @@
+<kendo-grid [data]="view" [scrollable]="'none'">
+  <kendo-grid-column title="Track" class="track">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <div class="track-container">
+        <app-track-visualization [track]="dataItem">
+        </app-track-visualization>
+        <span class="title">{{ dataItem.trackCensoredName }}</span>
+        <audio src={{dataItem.previewUrl}} controls="controls" type="audio/mpeg" preload="preload">
+        </audio>
+      </div>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>

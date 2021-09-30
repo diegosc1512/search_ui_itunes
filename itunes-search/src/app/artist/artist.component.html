@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-6">
+    <input type="search" #searchBox (keyup)="search(searchBox.value, selectedOption)" class="form-control input-lg well" placeholder="Type to search">
+  </div>
+  
+  <div class="col-sm-3">
+    <select class="form-control input-lg " [(ngModel)]="selectedOption" (change)="capture(); search(searchBox.value, selectedOption)">
+      <option value="all">All</option>
+      <option value="music">music</option>
+      <option value="tvShow">tvShow</option>
+      <option value="musicVideo">musicVideo</option>
+      <option value="audiobook">audiobook</option>
+      <option value="shortFilm">shortFilm</option>
+      <option value="podcast">podcast</option>
+      <option value="software">software</option>
+      <option value="ebook">ebook</option>
+      <option value="movie">movie</option>
+    </select>
+    <br>
+  </div>
+  <div class="col-sm-3">
+    <button class="form-control input-lg " (keyup.enter)="search(searchBox.value, selectedOption)" (click)="search(searchBox.value, selectedOption)">Search</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4" *ngIf="searchResults.length > 0">
+    <h3>Search Results</h3>
+    <button class="form-control input-lg bg-primary" (click)="searchAll(searchBox.value, selectedOption)">Search All</button>
+    <p *ngFor="let artist of searchResults">
+      <a id="{{ artist.artistId }}" href="#" (click)="getAlbums(artist.artistId, artist.artistName)">{{ artist.artistName }}</a>
+    </p>
+  </div>
+  <div class="col-xs-12" [ngClass]="{'col-sm-8': searchResults.length > 0 }">
+    <h3>{{ selectedArtist }}</h3>
+    <app-album [artistId]="artistId" *ngIf="artistId > 0"></app-album>
+  </div>
+</div>
